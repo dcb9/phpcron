@@ -78,4 +78,11 @@ class Pdo extends Adapter {
     protected function prepareSql(){
 
     }
+
+    public function checkCurrentMinuteHasRun(){
+        $sql = sprintf("/* file:%s line: %d */SELECT 1 FROM `%s` WHERE `crontab_id`='%s' AND `create_time`>='%s'"
+            , __FILE__, __LINE__, $this->options['log_table'], '-2', date('Y-m-d H:i:00'));
+        $query = $this->pdo->query($sql);
+        return (boolean)$query->fetch();
+    }
 }

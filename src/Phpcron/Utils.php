@@ -41,4 +41,16 @@ class Utils{
         }
         return self::$_current_token;
     }
+
+    public static function setRole($argv){
+
+        $role = Phpcron::ROLE_MASTER;
+        if(isset($argv[1])){
+            $argv1 = $argv[1];
+            if($argv1 =='--backend')
+                $role = Phpcron::ROLE_BACKEND;
+        }
+
+        define('ROLE', $role);
+    }
 }

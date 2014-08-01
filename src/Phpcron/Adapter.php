@@ -42,4 +42,5 @@ abstract class Adapter {
      */
     abstract public function fetch();
 
+    abstract public function checkCurrentMinuteHasRun();
 }

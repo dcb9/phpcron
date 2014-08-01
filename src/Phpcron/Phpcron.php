@@ -9,14 +9,17 @@
 namespace Phpcron;
 use Pagon\ChildProcess;
 use Pagon\EventEmitter;
-use Croon\Utils;
 
 class Phpcron extends EventEmitter{
-
-   protected $_is_run = false;
+    const ROLE_MASTER = 0;
+    const ROLE_BACKEND = 1;
+    protected $_is_run = false;
     protected $options = array(
         'engine'=>'pdo',
-
+    );
+    public $role = array(
+        self::ROLE_MASTER=>'主',
+        self::ROLE_BACKEND=>'备主',
     );
 
     /**
@@ -56,12 +59,23 @@ class Phpcron extends EventEmitter{
         }
 
 
-
         while (true) {
 
             $current_time = mktime(date('H'), date('i'), 0);
 
             $source = new $try_engine($this->options);
+            if(ROLE===self::ROLE_BACKEND){
+                $spread = 25-date('s');
+                if($spread>0){
+                    sleep($spread);
+                }
+            }
+            // 如果当前分钟已经在执行了，则本次休息一下，直接进入继续下一次循环
+            if($source->checkCurrentMinuteHasRun()){
+                $sleep = 60 - date('s');
+                sleep($sleep);
+                continue;
+            }
 
             // Load tasks
             $source->getNeedsExecTasks();
@@ -70,6 +84,7 @@ class Phpcron extends EventEmitter{
             foreach ($source->tasks as $task) {
                 $this->dispatch($task);
             }
+
 
             $sleep = 60 - (time()-$current_time);
 
@@ -94,7 +109,7 @@ class Phpcron extends EventEmitter{
         $that = $this;
 
         $this->process->parallel(function () use ($task, $that) {
-                $status = Utils::exec($task->command, $stdout, $stderr);
+                $status = \Croon\Utils::exec($task->command, $stdout, $stderr);
 
                 $that->emit('executed', $task, array($status, $stdout, $stderr));
             }
