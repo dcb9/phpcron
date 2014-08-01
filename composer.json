@@ -2,7 +2,9 @@
     "name": "phpcron/phpcron",
     "description": "Development by PHP. Solve two problem: a. Crontable machine halted ; b. Crontable log collect.",
     "require": {
-        "croon/croon": "0.2.0"
+        "php": ">=5.4.0",
+        "croon/croon": "0.2.0",
+        "mtdowling/cron-expression": "1.0.*"
     },
     "license": "MIT",
     "authors": [
@@ -10,5 +12,10 @@
             "name": "bobchengbin",
             "email": "bob@phpor.me"
         }
-    ]
+    ],
+    "autoload": {
+        "psr-0": { 
+            "Phpcron\\": "src/"
+        }
+    }
 }
