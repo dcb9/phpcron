@@ -43,13 +43,19 @@ $ vim etc/config.php
 修改 host dbname username 及 password
 ```
 
-## 运行
+## 启动与停止
 主机      角色
 server1   主
 server2   备主（主要是该执行的时候不执行，它就顶上去）
 ```
+启动
 server1 $ nohup bin/phpcron.php &
 server2 $ nohup bin/phpcron.php --backend &
+停止
+$ ps -ef | grep [p]hpcron
+      进程ID
+  501 36270   31711   0 12:58上午 ttys000    0:00.12 php bin/phpcron.php
+$ kill 进程ID
 ```
 
 ## 添加和修改计划任务
