@@ -48,8 +48,8 @@ $ vim etc/config.php
 server1   主
 server2   备主（主要是该执行的时候不执行，它就顶上去）
 ```
-server1 $ nohup bin/croon.php &
-server2 $ nohup bin/croon.php --backend &
+server1 $ nohup bin/phpcron.php &
+server2 $ nohup bin/phpcron.php --backend &
 ```
 
 ## 添加和修改计划任务
