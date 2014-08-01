@@ -34,6 +34,7 @@ $ cd src   // 进入到src目录
 
 ## 创建一个phpcron库，并创建相应的存储表
 mysql> CREATE DATABASE `phpcron`;
+mysql> use `phpcron`;
 mysql> source phpcron.sql;
 ```
 修改配置文件
