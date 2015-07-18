@@ -17,7 +17,7 @@ CREATE TABLE `crontab_log` (
   `status` varchar(255) DEFAULT NULL COMMENT '状态  执行时的退出状态',
   `stdout` text COMMENT '执行后的正常输出',
   `stderr` varchar(255) DEFAULT NULL COMMENT '执行完成后的错误输出',
-  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '插入的时间',
+  `create_time` datetime NOT NULL COMMENT '插入的时间',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='计划任务执行完之后的输出记录表';
 
