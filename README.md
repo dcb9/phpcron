@@ -52,7 +52,7 @@ server2   备主（主要是该执行的时候不执行，它就顶上去）
 server1 $ nohup bin/phpcron.php &
 server2 $ nohup bin/phpcron.php --backend &
 停止
-$ ps -ef | grep [p]hpcron
+$ ps -ef | grep phpcron
       进程ID
   501 36270   31711   0 12:58上午 ttys000    0:00.12 php bin/phpcron.php
 $ kill 进程ID
