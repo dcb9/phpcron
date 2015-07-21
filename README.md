@@ -17,7 +17,7 @@ PHP版计划任务，本程序是Croon的扩展功能延伸。
 - [Composer](http://getcomposer.org)
 
 库依赖（使用`composer install`自动安装）
-- [croon/croon](https://github.com/hfcorriez/croon)
+- [pagon/childprocess](https://github.com/hfcorriez/php-childprocess)
 - [mtdowling/cron-expression](https://github.com/mtdowling/cron-expression)
 
 ## 安装

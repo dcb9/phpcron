@@ -109,7 +109,7 @@ class Phpcron extends EventEmitter{
         $that = $this;
 
         $this->process->parallel(function () use ($task, $that) {
-                $status = \Croon\Utils::exec($task->command, $stdout, $stderr);
+                $status = Utils::exec($task->command, $stdout, $stderr);
 
                 $that->emit('executed', $task, array($status, $stdout, $stderr));
             }

@@ -3,7 +3,7 @@
     "description": "Development by PHP. Solve two problem: a. Crontable machine halted ; b. Crontable log collect.",
     "require": {
         "php": ">=5.4.0",
-        "croon/croon": "0.2.0",
+        "pagon/childprocess": "0.0.5",
         "mtdowling/cron-expression": "1.0.*"
     },
     "license": "MIT",
