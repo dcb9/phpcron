@@ -39,6 +39,7 @@ mysql> source phpcron.sql;
 ```
 修改配置文件
 ```
+$ cp etc/config-example.php etc/config.php
 $ vim etc/config.php
 修改 host dbname username 及 password
 ```
