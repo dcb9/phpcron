@@ -24,7 +24,7 @@ PHP版计划任务，本程序是Croon的扩展功能延伸。
 ``` 请保证两台服务器上所有的代码一致，包括配置文件，最好采用共享存储 ```
 代码克隆及依赖的安装
 ```
-git clone https://github.com/bobchengbin/phpcron.git
+git clone https://github.com/dcb9/phpcron.git
 cd phpcron
 composer install
 ```
