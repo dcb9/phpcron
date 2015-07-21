@@ -17,14 +17,14 @@ PHP版计划任务，本程序是Croon的扩展功能延伸。
 - [Composer](http://getcomposer.org)
 
 库依赖（使用`composer install`自动安装）
-- [croon/croon](https://github.com/hfcorriez/croon)
+- [pagon/childprocess](https://github.com/hfcorriez/php-childprocess)
 - [mtdowling/cron-expression](https://github.com/mtdowling/cron-expression)
 
 ## 安装
 ``` 请保证两台服务器上所有的代码一致，包括配置文件，最好采用共享存储 ```
 代码克隆及依赖的安装
 ```
-git clone https://github.com/bobchengbin/phpcron.git
+git clone https://github.com/dcb9/phpcron.git
 cd phpcron
 composer install
 ```
@@ -39,6 +39,7 @@ mysql> source phpcron.sql;
 ```
 修改配置文件
 ```
+$ cp etc/config-example.php etc/config.php
 $ vim etc/config.php
 修改 host dbname username 及 password
 ```
